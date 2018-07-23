@@ -1,0 +1,21 @@
+
+<!--index.wxml-->
+
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view>
+    <button bindtap="clickBtn" style="font-size:24rpx;border:1rpx solid #177;color:#177;border-radius:15rpx;">点击</button>
+  </view>
+  <view class="margin10">
+    <button bindtap="iopdf" style="font-size:24rpx;border:1rpx solid #177;color:#177;border-radius:15rpx;">打开PDF</button>
+   </view>
+</view>

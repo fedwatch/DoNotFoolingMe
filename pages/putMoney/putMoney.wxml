@@ -1,0 +1,32 @@
+<!--pages/putMoney/putMoney.wxml-->
+<view class="bg" style="padding:10rpx 0;">
+
+    <!-- <view style="padding-top:60rpx;">
+
+    </view>
+    <view class="notice" style="width:600rpx;margin:0 auto;font-size:24rpx;padding:35rpx 30rpx;color:#fff;background:#3287ff;border-radius:30rpx;">
+        <view>根据国家外汇管理局《关于进一步推进外汇管理改革完善真实合规性审核的通知》，即日起，在本司开立入金账并入金2500美元的账户，入金限额从2500.00 美元提升至5000.00 美元，入金手续费全免。</view>
+        <view>政策有效期至2019年03月17日止。</view>
+    </view> -->
+
+    <canvas canvas-id='cat' id='cat' style="width:100vw;border-bottom:1rpx solid #333;"></canvas>
+    <canvas canvas-id='cat2' id='cat2' style="width:100vw;border-top:1rpx solid #333;border-bottom:1rpx solid #333;"
+     disable-scroll="true" bindtouchstart="canvasStart" 
+     bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" 
+     binderror="canvasIdErrorCallback"></canvas>
+
+
+     <canvas class="canvas"  
+     id="canvas" canvas-id="canvas" 
+     disable-scroll="true" 
+     bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" binderror="canvasIdErrorCallback" ></canvas>
+<view bindtap="cleardraw" style="font-size:24rpx;text-align:center;padding:20rpx;background:#666;color:#fff;width:50rpx;">清除</view>
+<button type="default" bindtap="savePic">导出图片</button>
+
+
+<view>
+  <image src="{{imageUrl}}" style='width:90rpx;height:90rpx;'></image>
+</view>
+<button type="default" bindtap="base64ImageShow">Base64图片显示</button>
+
+</view>

@@ -1,0 +1,20 @@
+<!--logs.wxml-->
+<view class="container bg">
+    <map id="map" class="map" longitude="{{currentLongitude}}" latitude="{{currentLatitude}}" scale="{{scale}}"
+         controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap"
+         polyline="{{polyline}}" bindregionchange="regionchange" show-location></map>
+
+    <!-- <view class="btn-area">
+        <button bindtap="getCenterLocation" class="page-body-button" type="primary">获取位置</button>
+        <button bindtap="moveToLocation" class="page-body-button" type="primary">移动位置</button>
+        <button bindtap="translateMarker" class="page-body-button" type="primary">移动标注</button>
+        <button bindtap="includePoints" class="page-body-button" type="primary">缩放视野展示所有经纬度</button>
+    </view> -->
+
+
+</view>
+
+<view class="toggleBigSmall">
+    <text bindtap="scaleToBig" class="btn" data-type="primary">+</text>
+    <text bindtap="scaleToSmall" class="btn" data-type="primary">-</text>
+</view>
