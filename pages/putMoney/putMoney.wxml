@@ -1,7 +1,7 @@
 <!--pages/putMoney/putMoney.wxml-->
 <view class="bg" style="padding:10rpx 0;">
 
-    <!-- <view style="padding-top:60rpx;">
+  <!-- <view style="padding-top:60rpx;">
 
     </view>
     <view class="notice" style="width:600rpx;margin:0 auto;font-size:24rpx;padding:35rpx 30rpx;color:#fff;background:#3287ff;border-radius:30rpx;">
@@ -9,24 +9,64 @@
         <view>政策有效期至2019年03月17日止。</view>
     </view> -->
 
-    <canvas canvas-id='cat' id='cat' style="width:100vw;border-bottom:1rpx solid #333;"></canvas>
-    <canvas canvas-id='cat2' id='cat2' style="width:100vw;border-top:1rpx solid #333;border-bottom:1rpx solid #333;"
-     disable-scroll="true" bindtouchstart="canvasStart" 
-     bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" 
-     binderror="canvasIdErrorCallback"></canvas>
+  <button open-type="openSetting" bindOpenSetting="getAuthority" size="mini">打开授权设置页</button>
+  <view class="section">
+    <!-- <view class="section__title">movable-view区域小于movable-area</view> -->
+
+    <movable-area style="height: 400rpx; width: 100vw;" scale-area>
+        <movable-view style="height: 100rpx; width: 100rpx; background:url('../../files/svg/023-gift.svg'); transform: rotate(33deg);"  direction="all" bindchange="onChange" bindscale="onScale" scale scale-min="0.3" scale-max="5" scale-value="1">
+        </movable-view>
+      </movable-area>
+
+    <movable-area style="height: 400rpx; width: 100vw;">
+    <movable-view style="height: 400rpx; width: 100vw;">
+      <movable-area style="height: 100rpx; width: 100rpx; transform: rotate(33deg);">
+        <movable-view style="height: 100rpx; width: 100rpx; background:url('../../files/svg/023-gift.svg');" x="{{x}}" y="{{y}}" direction="all">
+        </movable-view>
+      </movable-area>
+         </movable-view>
+         
+    </movable-area>
+
+    
+    <view class="btn-area">
+      <button size="mini" bindtap="tap">点击移动</button>
+      <button size="mini" bindtap="addRotate">旋转</button>
+    </view>
+    <!--<view class="section__title">movable-view区域大于movable-area</view>-->
+    <!--<movable-area style="height: 100px; width: 100px; background: red;">-->
+    <!--<movable-view style="height: 200px; width: 200px; background: blue;" direction="all">-->
+    <!--</movable-view>-->
+    <!--</movable-area>-->
+    <!-- <view class="section__title">可放缩</view>
+    <movable-area style="height: 200px; width: 200px; background: red;" scale-area>
+      <movable-view style="height: 50px; width: 50px; background: blue;" direction="all" bindchange="onChange" bindscale="onScale" scale scale-min="0.5" scale-max="4" scale-value="2">
+      </movable-view>
+    </movable-area> -->
 
 
-     <canvas class="canvas"  
-     id="canvas" canvas-id="canvas" 
-     disable-scroll="true" 
-     bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" binderror="canvasIdErrorCallback" ></canvas>
-<view bindtap="cleardraw" style="font-size:24rpx;text-align:center;padding:20rpx;background:#666;color:#fff;width:50rpx;">清除</view>
-<button type="default" bindtap="savePic">导出图片</button>
 
 
-<view>
-  <image src="{{imageUrl}}" style='width:90rpx;height:90rpx;'></image>
-</view>
-<button type="default" bindtap="base64ImageShow">Base64图片显示</button>
+    <view style="font-family:{{fontFamily}};font-size:{{fontSize}};">{{text}}</view>
+  </view>
+
+
+  <canvas canvas-id='cat' id='cat' style="width:100vw;border-bottom:1rpx solid #333;"></canvas>
+  <canvas canvas-id='cat2' id='cat2' style="width:100vw;border-top:1rpx solid #333;border-bottom:1rpx solid #333;" disable-scroll="true" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" binderror="canvasIdErrorCallback"></canvas>
+
+
+  <canvas class="canvas" id="canvas" canvas-id="canvas" disable-scroll="true" bindtouchstart="canvasStart" bindtouchmove="canvasMove" bindtouchend="canvasEnd" touchcancel="canvasEnd" binderror="canvasIdErrorCallback"></canvas>
+  <view bindtap="cleardraw" style="font-size:24rpx;text-align:center;padding:20rpx;background:#666;color:#fff;width:50rpx;">清除</view>
+  <button type="default" size='mini' bindtap="savePic">导出图片</button>
+
+
+  <view>
+    <image src="{{imageUrl}}" style='width:100vw;height:100vh;'></image>
+    <!-- <image src="data:image/png;base64,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"
+      style='width:100vw;height:100vh;'></image> -->
+  </view>
+
+
+  <button type="default" bindtap="base64ImageShow">Base64图片显示</button>
 
 </view>

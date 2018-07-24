@@ -3,3 +3,10 @@
   height:100vh;
   background:#eee;
 } */
+
+
+movable-view{
+    /*will-change:transform;*/
+    will-change:auto!important;
+    transform-origin:center center 45rpx!important;
+}
